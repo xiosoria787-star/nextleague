@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="es"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NextLeague</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+ 
+            
+    <!-- BARRA DE NAVEGACIÓN -->
+    <nav class="navbar">
+
+        <div class="container navbar-content">
+
+            <!-- Logotipo -->
+           <div class="logo-container">
+                <img src="../logo/logoproyeco.png" alt="Logo NextLeague">
+            </div>
+            <button class="btn-openmenu" id="btnopenmenu"> <img src="../iconos/menu.png" alt="menu" class="openmenu"></button>
+            <!-- Enlaces de navegación -->
+            <div class="nav-links" id="nav">
+                <button class="btn-closemenu" id="close"><img src="../iconos/closemenu.png" alt="menu" class="closemenu"></button>
+                <a href="#tournament">Torneos</a>
+                <a href="#calender">Calendario</a>
+                <a href="#ranking">Resultados / Ranking</a>
+                
+            </div>
+
+            <!-- Botones de autenticación -->
+            
+             <div class="auth-buttons">
+                <button id="loginButton" class="btn btn-secondary">Iniciar sesión</button>
+                <button id="registerButton" class="btn btn-outline">Registrarse</button>
+            </div>
+        </div>
+
+    </nav>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main>
+
+        <!-- SECCIÓN PRINCIPAL (HERO) -->
+        <section class="hero-section">
+
+            <div class="container hero-content">
+
+                <!-- Texto e introducción -->
+                <div class="hero-text">
+
+                    <span class="hero-badge">
+                        Plataforma #1 de Torneos
+                    </span>
+
+                    <h1>
+                        Organiza y compite en torneos como un
+                        <span class="highlight-text">profesional</span>
+                    </h1>
+
+                    <p>
+                        Crea torneos, administra equipos y sigue resultados
+                        en tiempo real. Todo en un solo lugar.
+                    </p>
+
+                    <div class="hero-buttons">
+                        <button id="createTournamentButton" class="btn btn-primary">Crear torneo</button>
+                        <button id="exploreTournamentsButton" class="btn btn-outline">Explorar torneos</button>
+                    </div>
+
+                </div>
+
+                <!-- Imagen principal decorativa -->
+                <div class="hero-image-container">
+                    <img src="../iconos/toros.png" alt="Toros decorativos" class="hero-image">
+                </div>
+
+                <!-- Tarjeta de torneo activo -->
+                <div id="activeTournamentCard" class="tournament-card">
+
+                    <h3 id="activeTournamentName">
+                        Campeonato Continental MLBB S7
+                    </h3>
+
+                    <p>Premio total</p>
+
+                    <h2 id="prizePool">$5.500</h2>
+
+                    <p id="registeredTeams">128 / 256 equipos</p>
+
+                    <div class="progress-bar" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100">
+                        <div class="progress-fill" style="width: 55%;"></div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Indicador de desplazamiento -->
+            <a href="#statistics" class="scroll-indicator">
+                <span>Desliza hacia abajo</span>
+                <div class="scroll-arrow">↓</div>
+            </a>
+
+        </section>
+
+        <!-- SECCIÓN DE ESTADÍSTICAS -->
+        <section id="statistics" class="stats-section">
+
+            <div class="container stats-grid">
+
+                <div class="stat-card">
+                    <h3 id="teamsCount">120+</h3>
+                    <p>Equipos registrados</p>
+                </div>
+
+                <div class="stat-card">
+                    <h3 id="usersCount">120+</h3>
+                    <p>Usuarios registrados</p>
+                </div>
+
+                <div class="stat-card">
+                    <h3 id="tournamentsCount">120+</h3>
+                    <p>Torneos creados</p>
+                </div>
+
+                <div class="stat-card">
+                    <h3 id="competitionsCount">120+</h3>
+                    <p>Competiciones electrónicas</p>
+                </div>
+
+            </div>
+
+        </section>
+          <!-- SECCIÓN DE LISTA DE TORNEOS ACTIVOS-->
+
+        <section id="tournament" class="list-tournament-section">
+                <!-- Texto e introducción -->
+                    <h1>
+                        Lista de torneos activos
+                    </h1>
+                    <p style="font-size: 20px; margin-bottom: 5%;">
+                        Explora todos los  torneos disponibles  y encontra tu proxima competencia
+                    </p>
+
+                <div class="container-listactive-tournament-content">
+                    <div id="" class="cardtournment">
+                        <div class="cardtournment-dateecard"> 🕘 13/11/2026</div>
+
+                        <div class="cardtournment-image-container">
+
+                            <img src="../iconos/images.jpg" alt="images" class="cardtournment-image">
+                        </div>
+                       
+                        <div class="cardtournment-text">
+                            <h3 id="statetournment">
+                              Valorant en ROAD TO EWC 26
+                            </h3>
+                          
+                               
+                            <p class="typeofgame">  <img src="../iconos/valorantlogo.png" alt="valorant" class="logovalorant">VALORANT</p>
+                            </div>
+                            
+                            <p id="totalTeams" e=""> 32 / 64 Equipos</p>
+
+                         <div id="inscriptionStatus" class="tournament-status open">
+                           <a href="#" class="btn-link">Inscripciones abiertas</a> 
+                        </div>
+ 
+                        
+                    </div>
+
+                    <div id="" class="cardtournment">
+                        <div class="cardtournment-dateecard"> 🕘 13/11/2026</div>
+
+                        <div class="cardtournment-image-container">
+
+                            <img src="../iconos/images.jpg" alt="images" class="cardtournment-image">
+                        </div>
+                       
+                        <div class="cardtournment-text">
+                            <h3 id="statetournment">
+                              Valorant en ROAD TO EWC 26
+                            </h3>
+                          
+                               
+                            <p class="typeofgame">  <img src="../iconos/valorantlogo.png" alt="valorant" class="logovalorant">VALORANT</p>
+                            </div>
+                            
+                            <p id="totalTeams"> 32 / 64 Equipos</p>
+
+                         <div id="inscriptionStatus" class="tournament-status open">
+                           <a href="#" class="btn-link">Inscripciones abiertas</a> 
+                        </div>
+                    </div>
+
+                     <div id="" class="cardtournment">
+                        <div class="cardtournment-dateecard"> 🕘 13/11/2026</div>
+
+                        <div class="cardtournment-image-container">
+
+                            <img src="../iconos/images.jpg" alt="images" class="cardtournment-image">
+                        </div>
+                       
+                        <div class="cardtournment-text">
+                            <h3 id="statetournment">
+                              Valorant en ROAD TO EWC 26
+                            </h3>
+                          
+                               
+                            <p class="typeofgame">  <img src="../iconos/valorantlogo.png" alt="valorant" class="logovalorant">VALORANT</p>
+                            </div>
+                            
+                            <p id="totalTeams"> 32 / 64 Equipos</p>
+
+                         <div id="inscriptionStatus" class="tournament-status open">
+                           <a href="#" class="btn-link">Inscripciones abiertas</a> 
+                        </div>
+                    </div>
+
+                     <div id="" class="cardtournment">
+                        <div class="cardtournment-dateecard"> 🕘 13/11/2026</div>
+
+                        <div class="cardtournment-image-container">
+
+                            <img src="../iconos/images.jpg" alt="images" class="cardtournment-image">
+                        </div>
+                       
+                        <div class="cardtournment-text">
+                            <h3 id="statetournment">
+                              Valorant en ROAD TO EWC 26
+                            </h3>
+                          
+                               
+                            <p class="typeofgame">  <img src="../iconos/valorantlogo.png" alt="valorant" class="logovalorant">VALORANT</p>
+                            </div>
+                            
+                            <p id="totalTeams"> 32 / 64 Equipos</p>
+
+                         <div id="inscriptionStatus" class="tournament-status open">
+                           <a href="#" class="btn-link">Inscripciones abiertas</a> 
+                        </div>
+                    </div>
+
+                    <div id="" class="cardtournment">
+                        <div class="cardtournment-dateecard"> 🕘 13/11/2026</div>
+
+                        <div class="cardtournment-image-container">
+
+                            <img src="../iconos/images.jpg" alt="images" class="cardtournment-image">
+                        </div>
+                       
+                        <div class="cardtournment-text">
+                            <h3 id="statetournment">
+                              Valorant en ROAD TO EWC 26
+                            </h3>
+                          
+                               
+                            <p class="typeofgame">  <img src="../iconos/valorantlogo.png" alt="valorant" class="logovalorant">VALORANT</p>
+                            </div>
+                            
+                            <p id="totalTeams"> 32 / 64 Equipos</p>
+
+                         <div id="inscriptionStatus" class="tournament-status open">
+                           <a href="#" class="btn-link">Inscripciones abiertas</a> 
+                        </div>
+                    </div>
+                    <div id="" class="cardtournment">
+                        <div class="cardtournment-dateecard"> 🕘 13/11/2026</div>
+
+                        <div class="cardtournment-image-container">
+
+                            <img src="../iconos/images.jpg" alt="images" class="cardtournment-image">
+                        </div>
+                       
+                        <div class="cardtournment-text">
+                            <h3 id="statetournment">
+                              Valorant en ROAD TO EWC 26
+                            </h3>
+                          
+                               
+                            <p class="typeofgame">  <img src="../iconos/valorantlogo.png" alt="valorant" class="logovalorant">VALORANT</p>
+                            </div>
+                            
+                            <p id="totalTeams"> 32 / 64 Equipos</p>
+
+                         <div id="inscriptionStatus" class="tournament-status open">
+                           <a href="#" class="btn-link">Inscripciones abiertas</a> 
+                        </div>
+                    </div>
+                    <div id="" class="cardtournment">
+                        <div class="cardtournment-dateecard"> 🕘 13/11/2026</div>
+
+                        <div class="cardtournment-image-container">
+
+                            <img src="../iconos/images.jpg" alt="images" class="cardtournment-image">
+                        </div>
+                       
+                        <div class="cardtournment-text">
+                            <h3 id="statetournment">
+                              Valorant en ROAD TO EWC 26
+                            </h3>
+                          
+                               
+                            <p class="typeofgame">  <img src="../iconos/valorantlogo.png" alt="valorant" class="logovalorant">VALORANT</p>
+                            </div>
+                            
+                            <p id="totalTeams"> 32 / 64 Equipos</p>
+
+                         <div id="inscriptionStatus" class="tournament-status open">
+                           <a href="#" class="btn-link">Inscripciones abiertas</a> 
+                        </div>
+                    </div>
+                        
+            </div>
+        <!-- SECCION CALENDARIO-->
+
+     <section id="calender" class="calendary-secction">
+
+        <h1 style="font-width: bold; margin-top: 5%; margin-bottom: 10px;"> Calendario de torneos</h1>
+        <h3>¡Descubre la fecha de los enfrentamientos de tus equipos favoritos</h3>
+        <h3>mucho más fácil y sencillo!</h3>
+         <div class="container--calendary">
+
+            <div class="calendary-card">
+                <div class="fila">
+                    <div class="first-team">
+             <span class="logo-rojo"><img src="../iconos/sentinels.png" alt="sentinels" class="first"></span> Sentinals
+            </div>
+            <div class="versus">VS</div>
+            <div class="scnd-team">
+                Fnatic <span class="logo-naranja"><img src="../iconos/fnatic-logo-png_seeklogo-384281.png" alt="fnatic" class="first"></span>
+             </div>
+    </div>
+        <div class="description">
+         <div class="league">LKL</div>
+         <div class="stadistics">MEJOR DE 12</div>
+         
+        </div>
+         <div class="calendary-card">
+                <div class="fila">
+                    <div class="first-team">
+             <span class="logo-rojo"><img src="../iconos/sentinels.png" alt="sentinels" class="first"></span> Sentinals
+            </div>
+            <div class="versus">VS</div>
+            <div class="scnd-team">
+                Fnatic <span class="logo-naranja"><img src="../iconos/fnatic-logo-png_seeklogo-384281.png" alt="fnatic" class="first"></span>
+             </div>
+    </div>
+        <div class="description">
+         <div class="league">LKL</div>
+         <div class="stadistics">MEJOR DE 12</div>
+         
+        </div>
+
+         <div class="calendary-card">
+                <div class="fila">
+                    <div class="first-team">
+             <span class="logo-rojo"><img src="../iconos/sentinels.png" alt="sentinels" class="first"></span> Sentinals
+            </div>
+            <div class="versus">VS</div>
+            <div class="scnd-team">
+                Fnatic <span class="logo-naranja"><img src="../iconos/fnatic-logo-png_seeklogo-384281.png" alt="fnatic" class="first"></span>
+             </div>
+    </div>
+        <div class="description">
+         <div class="league">LKL</div>
+         <div class="stadistics">MEJOR DE 12</div>
+         
+        </div>
+
+         <div class="calendary-card">
+                <div class="fila">
+                    <div class="first-team">
+             <span class="logo-rojo"><img src="../iconos/sentinels.png" alt="sentinels" class="first"></span> Sentinals
+            </div>
+            <div class="versus">VS</div>
+            <div class="scnd-team">
+                Fnatic <span class="logo-naranja"><img src="../iconos/fnatic-logo-png_seeklogo-384281.png" alt="fnatic" class="first"></span>
+             </div>
+    </div>
+        <div class="description">
+         <div class="league">LKL</div>
+         <div class="stadistics">MEJOR DE 12</div>
+         
+        </div>
+        <a href="#ranking" class="scroll">
+
+                <div class="scrolling-arrow">↓</div>
+            </a>
+            </div>
+
+
+        </div>
+
+
+
+
+        </section>
+
+
+        <!-- SECCIÓN DE TABLA DE RESULTADOS-->
+        <section id="ranking" class="results-section">
+            <div class="container results-content">
+                <div>
+                    <h1>Tabla de resultados</h1>
+                <h3>¡Descubre los resultados de tu equipo mucho más rápido y sencillo!</h3>
+                </div>
+                
+                <table class="results-table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Club</th>
+                            <th>Jugadas</th>
+                            <th>Ganadas</th>
+                            <th>Empatadas</th>
+                            <th>Perdidas</th>
+                            <th class="hashtag">RC</th>
+                            <th class="hashtag">RD</th>
+                            <th class="hashtag">RF</th>
+                            <th>Puntos</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Club B</td>
+                            <td>10</td>
+                            <td>9</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td class="hashtag">-</td>
+                            <td class="hashtag">-</td>
+                            <td class="hashtag">-</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Club C</td>
+                            <td>10</td>
+                            <td>8</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td class="hashtag">-</td>
+                            <td class="hashtag">-</td>
+                            <td class="hashtag">-</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Club B</td>
+                            <td>10</td>
+                            <td>9</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td class="hashtag">-</td>
+                            <td class="hashtag">-</td>
+                            <td class="hashtag">-</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>Club B</td>
+                            <td>10</td>
+                            <td>9</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td class="hashtag">-</td>
+                            <td class="hashtag">-</td>
+                            <td class="hashtag">-</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>Club B</td>
+                            <td>10</td>
+                            <td>9</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td class="hashtag">-</td>
+                            <td class="hashtag">-</td>
+                            <td class="hashtag">-</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>Club B</td>
+                            <td>10</td>
+                            <td>9</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td class="hashtag">-</td>
+                            <td class="hashtag">-</td>
+                            <td class="hashtag">-</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>Club B</td>
+                            <td>10</td>
+                            <td>9</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td class="hashtag">-</td>
+                            <td class="hashtag">-</td>
+                            <td class="hashtag">-</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td>Club B</td>
+                            <td>10</td>
+                            <td>9</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td class="hashtag">-</td>
+                            <td class="hashtag">-</td>
+                            <td class="hashtag">-</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>9</td>
+                            <td>Club B</td>
+                            <td>10</td>
+                            <td>9</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td class="hashtag">-</td>
+                            <td class="hashtag">-</td>
+                            <td class="hashtag">-</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>10</td>
+                            <td>Club B</td>
+                            <td>10</td>
+                            <td>9</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td class="hashtag">-</td>
+                            <td class="hashtag">-</td>
+                            <td class="hashtag">-</td>
+                            <td>-</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+
+            </div>
+
+
+
+
+
+        </section>
+    </section></main>
+
+    <!-- PIE DE PÁGINA -->
+    <footer class="footer">
+        <div class="container">
+            <p>© 2026 NextLeague. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+
+
+
+</body></html>
