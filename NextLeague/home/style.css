@@ -1,0 +1,629 @@
+/* Reinicio general de estilos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #05001b;
+    color: #ffffff;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* Contenedor general */
+.container {
+    width: 90%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Barra de navegación */
+.navbar {
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    position: sticky;
+    top: 0;
+    background-color: #05001b;  
+    z-index: 1000;
+}
+
+.navbar-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-container img {
+    width: 60px;
+    cursor: pointer;
+}
+
+.logo-container img:hover {
+    transform: scale(1.05);
+    transition: 0.3s;
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    transition: .3s;
+}
+
+.nav-links a:hover {
+    color: #9b39ff;
+}
+
+.auth-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+
+/* Estilos de botones */
+.btn {
+    padding: 10px 18px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: .3s;
+}
+
+.btn-primary {
+    background-color: #8d02ff;
+    color: white;
+    border: none;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: rgba(255,255,255,0.08);
+    border: none;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: rgba(255,255,255,0.15);
+}
+
+.btn-outline {
+    background: transparent;
+    border: 2px solid #8d02ff;
+    color: #8d02ff;
+}
+
+.btn-outline:hover {
+    background-color: #8d02ff;
+    color: white;
+}
+
+/* Sección principal (Hero) */
+.hero-section {
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+
+.hero-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+}
+
+/* Texto e introducción */
+.hero-text {
+    max-width: 500px;
+}
+
+.hero-badge {
+    display: inline-block;
+    background-color: #1b073f;
+    color: #c89cff;
+    padding: 8px 14px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    font-size: .9rem;
+}
+
+.hero-text h1 {
+    font-size: 3.5rem;
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.highlight-text {
+    color: #9b39ff;
+}
+
+.hero-text p {
+    color: #cfcfcf;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+/* Botones de la sección principal */
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.btn-closemenu,
+.btn-openmenu{
+ display: none;
+
+
+}
+
+@media screen and (max-width: 768px ) {
+
+    .navbar{
+        position:fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color:#05001b;
+        z-index: 9999;
+        overflow: visible;
+    }
+
+    .navbar-content{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        padding: 10px 15px;
+        box-sizing: border-box;
+    }
+
+    .logo-container {
+        display: block ;
+        position: static;
+        
+    }
+    .logo-container img {
+        height: 45px ;
+        width: auto ;
+    }
+    
+     .nav-links {
+        box-shadow: 0 10px 20px rgba(26, 1, 32, 0.61);
+
+        display: none;  
+        position: absolute;
+
+        top: 100%;
+        left:0;
+        width: 100%; /* Le damos un ancho para que sea un menú lateral */
+        background-color: #1b014b ; 
+        padding: 2rem ; 
+        gap: 1.5rem ;
+        z-index: 99999;
+        
+        width: 250px;
+        
+        height: 100vh;
+    
+
+    
+     }
+     .nav-links.visible {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.5);
+        align-items: center;
+}
+    
+    .nav-links a {
+     display: block;
+    color: hsl(285, 100%, 99%) ; 
+     font-size: 1.2rem;
+    width: 100% ;
+    margin-top: 15px;
+    margin-left: 30px;
+     justify-content: center;
+     font-family: 'Segoe UI';
+     font-style: italic;
+     gap: 5rem;
+    
+
+    }  
+
+    .btn-closemenu{
+        display: block;
+        position: absolute;
+        cursor: pointer;
+        background: none;
+        border: none;
+        color: #8900fa;
+        font-size: 20px;
+        top: 15px;
+        
+
+        
+       
+    }
+    .closemenu{
+
+        width: 30px;
+        box-shadow: 0 10px 5cap rgba(76, 12, 92, 0.514);
+        border-color: #999;
+        align-items: flex-end;
+        margin-right: 12rem;
+    }
+    .openmenu{
+        width: 30px;
+        box-shadow: 0 10px 5cap rgba(76, 12, 92, 0.514);
+        border-color: #999;
+
+    }
+  .btn-openmenu {
+        background: none;
+        border: none;
+        color: #8900fa;
+        font-size: 40px;
+
+        display: block ;
+        position: static;
+    }
+       
+    .auth-buttons {
+        display: flex ;
+        flex-direction: row ; /* Uno al lado del otro */
+        gap: 0.5rem; /* Espacio chiquito entre ellos para que entren */
+        margin-top: 0 ;
+        position: static ;
+    }
+
+   
+    .auth-buttons .btn {
+        padding: 6px 12px ;
+        font-size: 14px ;
+    }
+
+    main, .hero, body > div:nth-of-type(2) { 
+        margin-top: 125px;
+    }
+   
+}
+
+/* Contenedor de imágenes y efectos de animación */
+.hero-image-container {
+    position: relative;
+}
+
+.hero-image {
+    width: 450px;
+}
+
+@keyframes flotar {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+/* Tarjeta de torneo */
+.tournament-card {
+    width: 260px;
+    background-color: rgba(35, 16, 75, 0.9);
+    padding: 20px;
+    border-radius: 12px;
+    backdrop-filter: blur(5px);
+}
+
+.status-label {
+    color: #00ff88;
+    text-transform: uppercase;
+    font-size: .8rem;
+    font-weight: bold;
+}
+
+.tournament-card h3 {
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+.tournament-card h2 {
+    margin: 10px 0;
+    color: #c07cff;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 10px;
+    background-color: #141414;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-top: 15px;
+}
+
+.progress-fill {
+    width: 55%;
+    height: 100%;
+    background-color: #8d02ff;
+}
+
+/* Indicador de desplazamiento (Scroll) */
+.scroll-indicator {
+    text-decoration: none;
+    color: white;
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+}
+
+.scroll-arrow {
+    font-size: 2rem;
+    animation: rebote 1.5s infinite;
+}
+
+@keyframes rebote {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(10px);
+    }
+}
+
+/* Sección de estadísticas */
+.stats-section {
+    padding: 60px 0;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.stat-card {
+    background-color: #1b073f;
+    border-radius: 10px;
+    padding: 25px;
+    text-align: center;
+}
+
+.stat-card h3 {
+    color: #b970ff;
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+/* Pie de página */
+.footer {
+    padding: 40px 0;
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    color: #999;
+}
+
+/* Diseños adaptativos (Media Queries) */
+@media (max-width: 1200px) {
+    .hero-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-text h1 {
+        font-size: 2.4rem;
+    }
+
+    .hero-image {
+        width: 280px;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .nav-links {
+        display: none;
+    }
+}
+
+    
+
+.container-listactive-tournament-content{
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 20px;       /* El espacio de separación entre tarjetas */
+    justify-content: left;
+    margin-left: 10px;
+}
+.cardtournment{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding:10px;
+
+    width: 200px;
+    height: 100%;
+    background-color: rgba(35, 16, 75, 0.9);
+    border-radius: 5%;
+    overflow: hidden;
+    position: relative;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.cardtournment-image-container {
+    width: 100%;
+    height: 200px;
+    flex-shrink: 0; /* Evita que flexbox aplaste el contenedor de la imagen */   
+}
+.cardtournment-image-container img {
+    object-fit: cover;  
+    border-radius: 8px;
+    width: 100%;
+    height: 218px;
+}
+.cardtournment-dateecard {
+position: absolute;
+top: 10px;
+left: 10px;
+background-color: rgba(16, 1, 20, 0.781);
+color:white;
+padding: 8px 4px;
+border-radius: 20px;
+}
+.typeofgame {
+    position: relative;
+    padding-left: 42px; /* Abre un espacio de 28px a la izquierda para que entre el logo */
+    margin: 0;
+    font-weight: bold;
+    font-size: 10px;
+}
+.logovalorant{
+    position: absolute;
+    left: -5px; 
+    top: -10px;
+    width: 55px ;       
+    height: 55px;             
+   object-fit: contain;
+}
+
+.cardtournment-text3 {   
+    color:white;
+    font-size: 15px;
+    
+}
+
+.btn-link{
+text-decoration: none;
+ color: lime;
+}
+
+.results-table, th,td {
+   border: 1px solid rgb(225, 181, 252);
+    margin-top: 20px;
+    border-collapse: collapse;
+     width: 100%;
+    height: 70px;
+   margin-bottom: 20px;
+   margin-left: 10px;
+   
+}
+
+
+.results-table, th,td {
+width: 100%;
+padding: 20px;
+}
+
+.results-table th {
+    background-color: #1b073f;
+    color: #ffffff;
+}
+
+
+.container--calendary{
+background-color: #090e2b; 
+  border: 2px solid #142157;
+  border-radius: 8px;
+  padding: 20px;
+  width: 600px;
+  margin: 30px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Espacio entre cada tarjeta  */
+  align-items: center;
+ width: 85%;
+ margin-bottom: 5%;
+
+} 
+
+.calendary-card{
+    width: 100%;
+  border-radius: 6px;
+  overflow: hidden;
+  
+}
+
+.fila {
+ background-color: #000000;
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 10px 16px;
+font-weight: bold;
+}
+
+.versus {
+    color: #8d02ff;
+    font-style: italic;
+    font-size: 20px;
+    
+}
+
+.description {
+ background-color: #380c4d;
+display: flex;
+justify-content: space-between;
+position: relative;
+padding: 10px 16px;
+font-weight: bold;
+margin-bottom: 3px;
+}
+
+.scroll {
+  
+    text-decoration: none;
+    color: white;
+    position: relative;
+    bottom: 0; 
+    left: 50%;
+    text-align: center;
+}
+.scrolling-arrow {
+    font-size: 2rem;
+    animation: rebote 1.5s infinite;
+}
+
+@keyframes rebote {
+   0%, 100% {
+        transform: translateX(-50%) translateY(0);
+    }
+    50% {
+        transform: translateX(-50%) translateY(10px); 
+    }
+}
+
+.first{
+    width: 30px;
+}
+
+.icon{
+    width: 5rem;
+}
