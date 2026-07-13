@@ -1,0 +1,126 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #05001b;
+    color: #ffffff;
+    font-family: 'Segoe UI', sans-serif;
+}
+.navbar {
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    position: sticky;
+    top: 0;
+    background-color: #05001b;  
+    z-index: 1000;
+}
+
+.navbar-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-container img {
+    margin-left: 4rem;
+    width: 60px;
+    cursor: pointer;
+}
+
+.logo-container img:hover {
+    transform: scale(1.05);
+    transition: 0.3s;
+}
+.description {
+    margin-top: 20px;
+    min-height: 30vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+   text-align: center;
+   color: rgb(255, 255, 255);
+   font-family: 'Segoe UI', sans-serif;
+
+}
+
+.forms {
+    width: 100%;
+    box-sizing: border-box;
+    max-width: 1200px;      
+    margin: 0 auto;  
+}
+
+.tournament-form {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+    align-items: start;
+    margin-left: 1rem;
+    margin-right: 2rem;
+}
+
+.form-left,
+.form-center,
+.form-right {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    font-family:'Segoe UI', sans-serif;
+}
+
+.form-center {
+    align-items: center;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+}
+
+input, textarea {
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #372e54;
+    outline: none;
+    border: 2px solid #372e54;
+    padding: 5px;
+    cursor:pointer;
+     transition: border-color 0.2s ease;
+     color:white;
+}
+
+input:focus, .texarea:focus{        
+ border-color: rgb(120, 8, 196); 
+
+}
+
+.tournament-form button[type="submit"] {
+     grid-column: 2 / 3;
+     justify-self: center;
+     padding: 0.5rem 5rem;
+     background-color: #5d00b6;
+     border: none;
+     border-radius: 6%;
+     margin-bottom: 5rem;
+     font-size: 25px;
+     font-family: 'Segoe UI', sans-serif;
+     cursor: pointer;
+   color: white;
+   margin-top:2rem;
+}
+
+.upload-icon{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    width:8rem;
+    object-fit: contain;
+    outline:none;
+}
