@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+       
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear torneo</title>
+     <link rel="stylesheet" href="createTournament.css">
+</head>
+ 
+
+<body>
+    <nav class="navbar">
+
+        <div class="container navbar-content">
+
+            <!-- Logotipo -->
+           <div class="logo-container">
+                <img src="../logo/logoproyeco.png" alt="NextLeague">
+            </div>
+          </div>
+    </nav>
+
+    <main>
+      <!-- no sé que poner-->    
+        <section  id= "createtournament" class="description">
+            <div>
+                    <h1 >
+                       Crear nuevo torneo
+                    </h1>
+                    <p style="font-size: 25px;">Completa la información para crear torneo</p>
+                </div>
+        </section>
+
+        <section id="forms" class ="forms">
+            
+                <form action="#" method="post" class="tournament-form">
+                <!------ COLUMNA IZQUIERDA DEL FORM-->
+                    <div class="form-left">
+                    <label for="tournamentName">Nombre del torneo:</label>
+                    <input type="text" id="tournamentName" name="tournamentName" required pattern="[A-Za-z]+">
+
+                    <label for="game">Juego:</label>
+                    <input type="text" id="game" name="game" required pattern="[A-Za-z]+">
+
+                    <label for="tournamentType">Tipo de torneo:</label>
+                    <input type="text" id="tournamentType" name="tournamentType" required pattern="[A-Za-z]+">
+
+                    <label for="teams">Numero de equipos:</label>
+                    <input type="number" id="teams" name="teams" required>
+                    </div>
+                    <!------ COLUMNA CENTRAL DEL FORM-->
+                    <div class="form-center">
+                    
+                    <label for="subir-reglas">
+                         <img src="../iconos/camera.png" alt="file" class="upload-icon">
+    <span>Subir reglas</span>
+                    </label>
+                    <input type="file" id="subir-reglas"  name="subir-reglas"  hidden required >
+                        
+                    
+                    <input type="file" id="subir-imagen"  name="subir-reglas" hidden required>
+                    <label for="subir-imagen"> <img src="../iconos/folder.png" alt="camera" class="upload-icon"> <span>Subir imagen</span> </label>
+
+                    
+                    </div>
+                    <!------ COLUMNA DERECHA DEL FORM-->
+                    <div class="form-right">
+                    <label for="award">Premio total:</label>
+                    <input type="number" id="award" name="award" required>
+
+                    <label for="startDate">Fecha de inicio:</label>
+                    <input type="date" id="startDate" name="startDate" required>
+
+                    <label for="endDate">Fecha de finalización:</label>
+                    <input type="date" id="endDate" name="endDate" required>
+
+                    <label for="description">Descripción:</label>
+                    <textarea id="description" name="description" rows="4" required pattern="[A-Za-z]+"></textarea>
+                    </div>
+                    <!----Boton de enviar-->
+                    <button type="submit">Crear torneo</button>
+                </form>
+            
+
+        </section>
+    
+    </main>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar sesión - NextLeague</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+
+    <!-- FONDOS DECORATIVOS -->
+    <div class="bg-glow bg-glow-1"></div>
+    <div class="bg-glow bg-glow-2"></div>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="navbar-content">
+            <a href="index.html" class="logo-link">
+                <img src="../logo/logoproyeco.png" alt="Logo NextLeague" class="logo">
+            </a>
+            <span class="nav-label">¿No tenés cuenta? <a href="../register/register.html">Registrate gratis</a></span>
+        </div>
+    </nav>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="main-content">
+
+        <!-- PANEL IZQUIERDO - INFO -->
+        <div class="info-panel">
+            <div class="info-inner">
+                <div class="badge">Bienvenido de vuelta</div>
+                <h1>Entrá a tu<br><span class="highlight">cuenta</span><br>NextLeague</h1>
+                <p>Accedé a tus torneos, equipos y estadísticas. Todo te está esperando.</p>
+
+                <div class="stats-preview">
+                    <div class="stat-item">
+                        <span class="stat-number">120+</span>
+                        <span class="stat-desc">Equipos activos</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">$5.5K</span>
+                        <span class="stat-desc">Premio más alto</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">256</span>
+                        <span class="stat-desc">Jugadores en línea</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PANEL DERECHO - FORMULARIO -->
+        <div class="form-panel">
+            <div class="form-card">
+                <h2>Iniciar sesión</h2>
+                <p class="form-subtitle">Ingresá tus credenciales para continuar</p>
+
+                <div id="alertMessage" class="alert hidden"></div>
+
+                <form id="loginForm" novalidate>
+
+                    <!-- Email -->
+                    <div class="form-group">
+                        <label for="email">Correo electrónico</label>
+                        <div class="input-wrapper">
+                            <span class="input-icon">✉️</span>
+                            <input type="email" id="email" name="email" placeholder="correo@ejemplo.com" autocomplete="email" required>
+                        </div>
+                        <span class="field-error" id="emailError"></span>
+                    </div>
+
+                    <!-- Contraseña -->
+                    <div class="form-group">
+                        <div class="label-row">
+                            <label for="password">Contraseña</label>
+                            <a href="#" class="forgot-link">¿Olvidaste tu contraseña?</a>
+                        </div>
+                        <div class="input-wrapper">
+                            <span class="input-icon">🔒</span>
+                            <input type="password" id="password" name="password" placeholder="Tu contraseña" required>
+                            <button type="button" class="toggle-password" onclick="togglePassword()">👁️</button>
+                        </div>
+                        <span class="field-error" id="passwordError"></span>
+                    </div>
+
+                    <!-- Recordarme -->
+                    <div class="form-group checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="rememberMe">
+                            <span class="checkmark"></span>
+                            Recordarme en este dispositivo
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn-submit" id="submitBtn">
+                        <span id="btnText">Iniciar sesión</span>
+                        <span id="btnLoader" class="btn-loader hidden"></span>
+                    </button>
+
+                </form>
+
+                <div class="divider"><span>o</span></div>
+
+                <p class="register-link">¿No tenés cuenta? <a href="../register /index.html">Registrate gratis</a></p>
+            </div>
+        </div>
+
+    </main>
+
+    <script src="login.js"></script>
+</body>
+</html>
