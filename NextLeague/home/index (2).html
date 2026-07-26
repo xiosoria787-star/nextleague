@@ -31,8 +31,8 @@
             <!-- Botones de autenticación -->
             
              <div class="auth-buttons">
-                <button id="loginButton" class="btn btn-secondary">Iniciar sesión</button>
-                <button id="registerButton" class="btn btn-outline">Registrarse</button>
+                <button id="loginButton" class="btn btn-secondary" onclick="window.location.href='login.html'">Iniciar sesión</button>
+                <button id="registerButton" class="btn btn-outline" onclick="window.location.href='../register/register.html'">Registrarse</button>
             </div>
         </div>
 
@@ -140,10 +140,10 @@
 
         <section id="tournament" class="list-tournament-section">
                 <!-- Texto e introducción -->
-                    <h1>
+                    <h1 style="margin-left: 4rem;">
                         Lista de torneos activos
                     </h1>
-                    <p style="font-size: 20px; margin-bottom: 5%;">
+                    <p style="font-size: 20px; margin-bottom: 5%; margin-left: 4rem;">
                         Explora todos los  torneos disponibles  y encontra tu proxima competencia
                     </p>
 
@@ -321,10 +321,12 @@
         <!-- SECCION CALENDARIO-->
 
      <section id="calender" class="calendary-secction">
-
-        <h1 style="font-width: bold; margin-top: 5%; margin-bottom: 10px;"> Calendario de torneos</h1>
-        <h3>¡Descubre la fecha de los enfrentamientos de tus equipos favoritos</h3>
-        <h3>mucho más fácil y sencillo!</h3>
+        <div class="container-title">
+            <h1 style="font-width: bold; margin-top: 5%; margin-bottom: 10px;" > Calendario de torneos</h1>
+            <h3>¡Descubre la fecha de los enfrentamientos de tus equipos favoritos</h3>
+            <h3>mucho más fácil y sencillo!</h3>
+        </div>
+        
          <div class="container--calendary">
 
             <div class="calendary-card">

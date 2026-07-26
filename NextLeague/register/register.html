@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrarse - NextLeague</title>
+    <link rel="stylesheet" href="register.css">
+</head>
+<body>
+
+    <!-- FONDO DECORATIVO -->
+    <div class="bg-glow bg-glow-1"></div>
+    <div class="bg-glow bg-glow-2"></div>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="navbar-content">
+            <a href="../home/index.html" class="logo-link">
+                <img src="../logo/logoproyeco.png" alt="Logo NextLeague" class="logo">
+            </a>
+            <span class="nav-label">¿Ya tenés cuenta? <a href="../home /login.html">Iniciar sesión</a></span>
+        </div>
+    </nav>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="main-content">
+
+        <!-- PANEL IZQUIERDO - INFO -->
+        <div class="info-panel">
+            <div class="info-inner">
+                <div class="badge">Plataforma #1 de Torneos</div>
+                <h1>Únete a la<br><span class="highlight">comunidad</span><br>NextLeague</h1>
+                <p>Crea tu cuenta y empezá a organizar torneos, inscribir equipos y competir a nivel profesional.</p>
+
+                <ul class="features-list">
+                    <li>
+                        <span class="feature-icon">🏆</span>
+                        <div>
+                            <strong>Crea torneos ilimitados</strong>
+                            <p>Organizá competencias de cualquier juego</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="feature-icon">📊</span>
+                        <div>
+                            <strong>Estadísticas en tiempo real</strong>
+                            <p>Seguí resultados y rankings actualizados</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="feature-icon">👥</span>
+                        <div>
+                            <strong>Comunidad activa</strong>
+                            <p>Más de 120 equipos ya compiten</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- PANEL DERECHO - FORMULARIO -->
+        <div class="form-panel">
+            <div class="form-card">
+                <h2>Crear cuenta</h2>
+                <p class="form-subtitle">Completá tus datos para registrarte</p>
+
+                <div id="alertMessage" class="alert hidden"></div>
+
+                <form id="registerForm" novalidate>
+
+                    <!-- Nombre de usuario -->
+                    <div class="form-group">
+                        <label for="username">Nombre de usuario</label>
+                        <div class="input-wrapper">
+                            <span class="input-icon">👤</span>
+                            <input type="text" id="username" name="username" placeholder="TuNickGamer" autocomplete="off" required>
+                        </div>
+                        <span class="field-error" id="usernameError"></span>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="form-group">
+                        <label for="email">Correo electrónico</label>
+                        <div class="input-wrapper">
+                            <span class="input-icon">✉️</span>
+                            <input type="email" id="email" name="email" placeholder="correo@ejemplo.com" autocomplete="off" required>
+                        </div>
+                        <span class="field-error" id="emailError"></span>
+                    </div>
+
+                    <!-- Contraseña -->
+                    <div class="form-group">
+                        <label for="password">Contraseña</label>
+                        <div class="input-wrapper">
+                            <span class="input-icon">🔒</span>
+                            <input type="password" id="password" name="password" placeholder="Mínimo 8 caracteres" required>
+                            <button type="button" class="toggle-password" onclick="togglePassword('password', this)">👁️</button>
+                        </div>
+                        <div class="password-strength" id="strengthBar">
+                            <div class="strength-fill" id="strengthFill"></div>
+                        </div>
+                        <span class="strength-label" id="strengthLabel"></span>
+                        <span class="field-error" id="passwordError"></span>
+                    </div>
+
+                    <!-- Confirmar contraseña -->
+                    <div class="form-group">
+                        <label for="confirmPassword">Confirmar contraseña</label>
+                        <div class="input-wrapper">
+                            <span class="input-icon">🔒</span>
+                            <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Repetí tu contraseña" required>
+                            <button type="button" class="toggle-password" onclick="togglePassword('confirmPassword', this)">👁️</button>
+                        </div>
+                        <span class="field-error" id="confirmPasswordError"></span>
+                    </div>
+
+                    <!-- Términos -->
+                    <div class="form-group checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="terms" required>
+                            <span class="checkmark"></span>
+                            Acepto los <a href="#">Términos de uso</a> y la <a href="#">Política de privacidad</a>
+                        </label>
+                        <span class="field-error" id="termsError"></span>
+                    </div>
+
+                    <button type="submit" class="btn-submit" id="submitBtn">
+                        <span id="btnText">Crear mi cuenta</span>
+                        <span id="btnLoader" class="btn-loader hidden"></span>
+                    </button>
+
+                </form>
+
+                <p class="login-link">¿Ya tenés cuenta? <a href="../home /login.html">Iniciá sesión aquí</a></p>
+            </div>
+        </div>
+
+    </main>
+
+    <script src="main.js"></script>
+</body>
+</html>
