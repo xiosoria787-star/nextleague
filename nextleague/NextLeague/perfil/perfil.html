@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi perfil - NextLeague</title>
+    <link rel="stylesheet" href="perfil.css">
+</head>
+<body>
+
+    <div class="bg-glow bg-glow-1"></div>
+    <div class="bg-glow bg-glow-2"></div>
+
+    <nav class="navbar">
+        <div class="navbar-content">
+            <a href="../home/index.html" class="logo-link">
+                <img src="../logo/logoproyeco.png" alt="Logo NextLeague" class="logo">
+            </a>
+            <div id="authArea" class="auth-buttons"></div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="form-card">
+            <h2>Mi perfil</h2>
+            <p class="form-subtitle">Solo vos podés editar esta información</p>
+
+            <div id="alertMessage" class="alert hidden"></div>
+
+            <!-- FOTO DE PERFIL -->
+            <div class="foto-perfil-wrapper">
+                <img id="fotoPreview" src="../iconos/profile.png" alt="Foto de perfil" class="foto-perfil">
+                <div class="foto-acciones">
+                    <label for="inputFoto" class="btn-foto">Cambiar foto</label>
+                    <input type="file" id="inputFoto" accept="image/jpeg,image/png,image/webp" hidden>
+                    <button type="button" id="btnEliminarFoto" class="btn-foto btn-foto-borrar">Eliminar foto</button>
+                </div>
+            </div>
+
+            <form id="perfilForm" novalidate>
+
+                <div class="form-group">
+                    <label for="nombre_usuario">Nombre de usuario</label>
+                    <input type="text" id="nombre_usuario" name="nombre_usuario" required>
+                    <span class="field-error" id="nombre_usuarioError"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="correo">Correo electrónico</label>
+                    <input type="email" id="correo" name="correo" required>
+                    <span class="field-error" id="correoError"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="biografia">Biografía</label>
+                    <textarea id="biografia" name="biografia" rows="3" maxlength="280" placeholder="Contá algo sobre vos (opcional)"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="password_nueva">Nueva contraseña (opcional)</label>
+                    <input type="password" id="password_nueva" name="password_nueva" placeholder="Dejar vacío para no cambiarla">
+                    <span class="field-error" id="password_nuevaError"></span>
+                </div>
+
+                <button type="submit" class="btn-submit" id="submitBtn">
+                    <span id="btnText">Guardar cambios</span>
+                    <span id="btnLoader" class="btn-loader hidden"></span>
+                </button>
+
+            </form>
+        </div>
+
+        <div class="form-card" id="misTorneosCard" style="margin-top:20px;">
+            <h2 id="misTorneosTitulo">Mis torneos</h2>
+            <div id="misTorneosLista"><p style="opacity:.6;">Cargando...</p></div>
+        </div>
+    </main>
+
+    <script src="../shared/auth-ui.js"></script>
+    <script src="perfil.js"></script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explorar torneos - NextLeague</title>
+    <link rel="stylesheet" href="explorar.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="navbar-content">
+            <a href="../home/index.html" class="logo-link">
+                <img src="../logo/logoproyeco.png" alt="Logo NextLeague" class="logo">
+            </a>
+            <div id="authArea" class="auth-buttons"></div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <h1>Explorar torneos</h1>
+
+        <div class="tabs">
+            <button class="tab activo" data-tab="todos">Todos</button>
+            <button class="tab" data-tab="inscripciones" id="tabInscripciones">Mis inscripciones</button>
+            <button class="tab" data-tab="creados" id="tabCreados">Mis torneos creados</button>
+        </div>
+
+        <div class="filtros">
+            <select id="filtroJuego">
+                <option value="">Todos los deportes/juegos</option>
+            </select>
+            <select id="filtroEstado">
+                <option value="">Todos los estados</option>
+                <option value="pendiente">Inscripciones abiertas</option>
+                <option value="en_curso">En curso</option>
+                <option value="finalizado">Finalizado</option>
+            </select>
+        </div>
+
+        <div id="listaTorneos" class="grid-torneos">
+            <p style="opacity:.7;">Cargando torneos...</p>
+        </div>
+    </main>
+
+    <script src="../shared/auth-ui.js"></script>
+    <script src="explorar.js"></script>
+</body>
+</html>

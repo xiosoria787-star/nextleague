@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recuperar contraseña - NextLeague</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-content">
+            <a href="index.html" class="logo-link"><img src="../logo/logoproyeco.png" class="logo" alt=""></a>
+            <span class="nav-label"><a href="login.html">Volver a iniciar sesión</a></span>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="form-card">
+            <h2>¿Olvidaste tu contraseña?</h2>
+            <p class="form-subtitle">Ingresá tu correo y te generamos un link para restablecerla.</p>
+
+            <div id="alertMessage" class="alert hidden"></div>
+
+            <div id="linkDemo" class="alert hidden" style="word-break: break-all;"></div>
+
+            <form id="recuperarForm" novalidate>
+                <div class="form-group">
+                    <label for="email">Correo electrónico</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <button type="submit" class="btn-submit" id="submitBtn">
+                    <span id="btnText">Enviar link de recuperación</span>
+                    <span id="btnLoader" class="btn-loader hidden"></span>
+                </button>
+            </form>
+        </div>
+    </main>
+
+    <script>
+        const form = document.getElementById('recuperarForm');
+        const alertMessage = document.getElementById('alertMessage');
+        const linkDemo = document.getElementById('linkDemo');
+        const submitBtn = document.getElementById('submitBtn');
+        const btnText = document.getElementById('btnText');
+        const btnLoader = document.getElementById('btnLoader');
+
+        function showAlert(msg, type) {
+            alertMessage.textContent = msg;
+            alertMessage.className = `alert ${type}`;
+            alertMessage.classList.remove('hidden');
+        }
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            submitBtn.disabled = true;
+            btnText.classList.add('hidden');
+            btnLoader.classList.remove('hidden');
+            linkDemo.classList.add('hidden');
+
+            try {
+                const res = await fetch('../backend/auth/solicitar_recuperacion.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email: document.getElementById('email').value.trim() })
+                });
+                const data = await res.json();
+                showAlert(data.mensaje, data.exito ? 'success' : 'error');
+
+                if (data.link_demo) {
+                    linkDemo.innerHTML = `⚠️ <strong>Solo para la demo</strong> (sin servidor de email configurado): <a href="${data.link_demo}" style="color:#c7b3ff;">${data.link_demo}</a>`;
+                    linkDemo.classList.remove('hidden');
+                }
+            } catch (err) {
+                showAlert('No se pudo conectar con el servidor.', 'error');
+            } finally {
+                submitBtn.disabled = false;
+                btnText.classList.remove('hidden');
+                btnLoader.classList.add('hidden');
+            }
+        });
+    </script>
+</body>
+</html>

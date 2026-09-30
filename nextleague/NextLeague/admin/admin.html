@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de administración - NextLeague</title>
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="navbar-content">
+            <a href="../home/index.html" class="logo-link">
+                <img src="../logo/logoproyeco.png" alt="Logo NextLeague" class="logo">
+            </a>
+            <div id="authArea" class="auth-buttons"></div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <h1>Panel de administración</h1>
+
+        <div id="alertMessage" class="alert hidden"></div>
+
+        <div class="tabs">
+            <button class="tab activo" data-tab="usuarios">Usuarios</button>
+            <button class="tab" data-tab="torneos">Torneos</button>
+            <button class="tab" data-tab="auditoria">Registro de actividad</button>
+        </div>
+
+        <section id="panelUsuarios" class="panel-tab">
+            <div id="listaUsuarios"><p class="estado-vacio">Cargando...</p></div>
+        </section>
+
+        <section id="panelTorneos" class="panel-tab hidden">
+            <div id="listaTorneosAdmin"><p class="estado-vacio">Cargando...</p></div>
+        </section>
+
+        <section id="panelAuditoria" class="panel-tab hidden">
+            <div id="listaAuditoria"><p class="estado-vacio">Cargando...</p></div>
+        </section>
+    </main>
+
+    <script src="../shared/auth-ui.js"></script>
+    <script src="admin.js"></script>
+</body>
+</html>

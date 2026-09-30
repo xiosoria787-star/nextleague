@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Torneo - NextLeague</title>
+    <link rel="stylesheet" href="torneo.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="navbar-content">
+            <a href="../home/index.html" class="logo-link">
+                <img src="../logo/logoproyeco.png" alt="Logo NextLeague" class="logo">
+            </a>
+            <div id="authArea" class="auth-buttons"></div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+
+        <div id="cargando" class="aviso">Cargando torneo...</div>
+
+        <div id="contenidoTorneo" class="hidden">
+
+            <!-- ENCABEZADO -->
+            <section class="torneo-header">
+                <img id="torneoLogo" class="torneo-logo" src="../iconos/images.jpg" alt="">
+                <div class="torneo-header-info">
+                    <span id="torneoEstado" class="badge-estado"></span>
+                    <h1 id="torneoNombre"></h1>
+                    <p id="torneoMeta" class="torneo-meta"></p>
+                    <p id="torneoDescripcion" class="torneo-descripcion"></p>
+                    <a id="torneoReglas" href="#" target="_blank" class="link-reglas hidden">📄 Ver reglas (PDF)</a>
+                </div>
+            </section>
+
+            <div id="alertMessage" class="alert hidden"></div>
+
+            <!-- ACCIONES DEL ORGANIZADOR -->
+            <section id="panelOrganizador" class="panel-organizador hidden">
+                <h2>Panel del organizador</h2>
+                <button id="btnGenerarCalendario" class="btn-primary">Generar calendario / bracket</button>
+                <p class="ayuda-organizador">Esto arma los enfrentamientos automáticamente según el formato del torneo, una vez que ya se anotaron los equipos.</p>
+            </section>
+
+            <!-- INSCRIPCIÓN -->
+            <section id="panelInscripcion" class="panel hidden">
+                <h2>Anotarse al torneo</h2>
+                <div id="inscripcionEquipos" class="hidden">
+                    <form id="formCrearEquipo" class="form-inline">
+                        <input type="text" id="nombreEquipo" placeholder="Nombre de tu equipo" required>
+                        <button type="submit">Crear equipo</button>
+                    </form>
+                </div>
+                <div id="inscripcionIndividual" class="hidden">
+                    <button id="btnInscribirme" class="btn-primary">Inscribirme a este torneo</button>
+                </div>
+            </section>
+
+            <!-- EQUIPOS -->
+            <section class="panel">
+                <h2>Equipos anotados</h2>
+                <div id="listaEquipos" class="lista-equipos"></div>
+            </section>
+
+            <!-- TABLA DE POSICIONES (liga / suizo) -->
+            <section id="panelPosiciones" class="panel hidden">
+                <h2>Tabla de posiciones</h2>
+                <table class="tabla-posiciones">
+                    <thead>
+                        <tr><th>Equipo</th><th>PJ</th><th>PG</th><th>PE</th><th>PP</th><th>GF</th><th>GC</th><th>Pts</th></tr>
+                    </thead>
+                    <tbody id="cuerpoPosiciones"></tbody>
+                </table>
+            </section>
+
+            <!-- LLAVES (eliminación directa) -->
+            <section id="panelLlaves" class="panel hidden">
+                <h2>Llaves</h2>
+                <div id="listaLlaves" class="lista-llaves"></div>
+            </section>
+
+            <!-- CALENDARIO / ENFRENTAMIENTOS -->
+            <section class="panel">
+                <h2>Calendario de enfrentamientos</h2>
+                <div id="listaEnfrentamientos" class="lista-enfrentamientos"></div>
+            </section>
+
+        </div>
+    </main>
+
+    <script src="../shared/auth-ui.js"></script>
+    <script src="torneo.js"></script>
+</body>
+</html>

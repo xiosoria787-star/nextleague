@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NextLeague</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+ 
+            
+    <!-- BARRA DE NAVEGACIÓN -->
+    <nav class="navbar">
+
+        <div class="container navbar-content">
+
+            <!-- Logotipo -->
+           <div class="logo-container">
+                <img src="../logo/logoproyeco.png" alt="Logo NextLeague">
+            </div>
+            <button class="btn-openmenu" id="btnopenmenu"> <img src="../iconos/menu.png" alt="menu" class="openmenu"></button>
+            <!-- Enlaces de navegación -->
+            <div class="nav-links" id="nav">
+                <button class="btn-closemenu" id="close"><img src="../iconos/closemenu.png" alt="menu" class="closemenu"></button>
+                <a href="#tournament">Torneos</a>
+                <a href="#calender">Calendario</a>
+                <a href="#ranking">Resultados / Ranking</a>
+                <a href="../torneos/explorar.html">Explorar torneos</a>
+            </div>
+            <!-- Botones de autenticación -->
+             <div id="authArea" class="auth-buttons"></div>
+        </div>
+
+    </nav>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main>
+
+        <!-- SECCIÓN PRINCIPAL (HERO) -->
+        <section class="hero-section">
+
+            <div class="container hero-content">
+
+                <!-- Texto e introducción -->
+                <div class="hero-text">
+
+                    <span class="hero-badge">
+                        Plataforma #1 de Torneos
+                    </span>
+
+                    <h1>
+                        Organiza y compite en torneos como un
+                        <span class="highlight-text">profesional</span>
+                    </h1>
+
+                    <p>
+                        Crea torneos, administra equipos y sigue resultados
+                        en tiempo real. Todo en un solo lugar.
+                    </p>
+
+                    <div class="hero-buttons">
+                        <a href="../createtournament/createtournament.html" id="createTournamentButton" class="btn btn-primary">Crear torneo</a>
+                        <button id="exploreTournamentsButton" class="btn btn-outline">Explorar torneos</button>
+                    </div>
+
+                </div>
+
+                <!-- Imagen principal decorativa -->
+                <div class="hero-image-container">
+                    <img src="../iconos/toros.png" alt="Toros decorativos" class="hero-image">
+                </div>
+
+                <!-- Tarjeta de torneo activo -->
+                <div id="activeTournamentCard" class="tournament-card">
+
+                    <h3 id="activeTournamentName">
+                        Campeonato Continental MLBB S7
+                    </h3>
+
+                    <p>Premio total</p>
+
+                    <h2 id="prizePool">$5.500</h2>
+
+                    <p id="registeredTeams">128 / 256 equipos</p>
+
+                    <div class="progress-bar" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100">
+                        <div class="progress-fill" style="width: 55%;"></div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Indicador de desplazamiento -->
+            <a href="#statistics" class="scroll-indicator">
+                <span>Desliza hacia abajo</span>
+                <div class="scroll-arrow">↓</div>
+            </a>
+
+        </section>
+
+        <!-- SECCIÓN DE ESTADÍSTICAS -->
+        <section id="statistics" class="stats-section">
+
+            <div class="container stats-grid">
+
+                <div class="stat-card">
+                     <img src="../iconos/group.png" alt="group" class="icon"/>
+                    <h3 id="teamsCount">120+</h3>
+                    <p>Equipos registrados</p>
+                </div>
+
+                <div class="stat-card">
+                     <img src="../iconos/profile.png" alt="profile" class="icon"/>
+                    <h3 id="usersCount">120+</h3>
+                    <p>Usuarios registrados</p>
+                </div>
+
+                <div class="stat-card">
+                     <img src="../iconos/trophy.png" alt="trofeo" class="icon"/>
+                    <h3 id="tournamentsCount">120+</h3>
+                    <p>Torneos creados</p>
+                </div>
+
+                <div class="stat-card">
+                    <img src="../iconos/videogame.png" alt="videogame" class="icon"/>
+                    <h3 id="competitionsCount">120+</h3>
+                    <p>Competiciones electrónicas</p>
+                </div>
+
+            </div>
+
+        </section>
+          <!-- SECCIÓN DE LISTA DE TORNEOS ACTIVOS-->
+
+        <section id="tournament" class="list-tournament-section">
+                <!-- Texto e introducción -->
+                    <h1 style="margin-left: 4rem;">
+                        Lista de torneos activos
+                    </h1>
+                    <p style="font-size: 20px; margin-bottom: 5%; margin-left: 4rem;">
+                        Explora todos los  torneos disponibles  y encontra tu proxima competencia
+                    </p>
+
+                <div class="container-listactive-tournament-content" id="listaTorneos">
+                    <p style="opacity:.7;">Cargando torneos...</p>
+                </div>
+        </section>
+        <!-- SECCION CALENDARIO-->
+
+     <section id="calender" class="calendary-secction">
+        <div class="container-title">
+            <h1 style="font-width: bold; margin-top: 5%; margin-bottom: 10px;" > Calendario de torneos</h1>
+            <h3>¡Descubre la fecha de los enfrentamientos de tus equipos favoritos</h3>
+            <h3>mucho más fácil y sencillo!</h3>
+        </div>
+
+        <div class="filtro-deporte-wrapper">
+            <label for="filtroDeporteHome">Filtrar por deporte/juego:</label>
+            <select id="filtroDeporteHome">
+                <option value="">Todos</option>
+            </select>
+        </div>
+
+         <div class="container--calendary" id="calendarioProximos">
+            <p class="estado-vacio">Cargando calendario...</p>
+        </div>
+
+        </section>
+
+
+        <!-- SECCIÓN DE TABLA DE RESULTADOS-->
+        <section id="ranking" class="results-section">
+            <div class="container results-content">
+                <div>
+                    <h1>Últimos resultados</h1>
+                <h3>¡Descubre los resultados de tu equipo mucho más rápido y sencillo!</h3>
+                </div>
+
+                <div id="resultadosRecientes" class="lista-resultados-home">
+                    <p class="estado-vacio">Cargando resultados...</p>
+                </div>
+            </div>
+        </section>
+   </main>
+
+    <!-- PIE DE PÁGINA -->
+    <footer class="footer">
+        <div class="container">
+            <p>© 2026 NextLeague. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="../shared/auth-ui.js"></script>
+    <script src="torneos-home.js"></script>
+
+
+
+</body></html>
