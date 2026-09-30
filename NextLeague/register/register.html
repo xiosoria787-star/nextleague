@@ -18,7 +18,7 @@
             <a href="../home/index.html" class="logo-link">
                 <img src="../logo/logoproyeco.png" alt="Logo NextLeague" class="logo">
             </a>
-            <span class="nav-label">¿Ya tenés cuenta? <a href="../home /login.html">Iniciar sesión</a></span>
+            <span class="nav-label">¿Ya tenés cuenta? <a href="../home/login.html">Iniciar sesión</a></span>
         </div>
     </nav>
 
@@ -114,6 +114,22 @@
                         <span class="field-error" id="confirmPasswordError"></span>
                     </div>
 
+                    <!-- Rol (excluyente: o creás torneos, o participás) -->
+                    <div class="form-group">
+                        <label>¿Qué querés hacer en NextLeague?</label>
+                        <div class="rol-opciones">
+                            <label class="rol-opcion">
+                                <input type="radio" name="rol" value="organizador" required>
+                                <span>🏆 Crear y organizar torneos</span>
+                            </label>
+                            <label class="rol-opcion">
+                                <input type="radio" name="rol" value="participante" required>
+                                <span>🎮 Participar en torneos</span>
+                            </label>
+                        </div>
+                        <span class="field-error" id="rolError"></span>
+                    </div>
+
                     <!-- Términos -->
                     <div class="form-group checkbox-group">
                         <label class="checkbox-label">
@@ -131,12 +147,16 @@
 
                 </form>
 
-                <p class="login-link">¿Ya tenés cuenta? <a href="../home /login.html">Iniciá sesión aquí</a></p>
+                <p class="login-link">¿Ya tenés cuenta? <a href="../home/login.html">Iniciá sesión aquí</a></p>
             </div>
         </div>
 
     </main>
 
-    <script src="main.js"></script>
+    <script src="../shared/auth-ui.js"></script>
+    <script>
+        nextleagueObtenerSesion().then(d => { if (d.logueado) window.location.href = '../home/index.html'; });
+    </script>
+    <script src="register.js"></script>
 </body>
 </html>

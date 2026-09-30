@@ -1,0 +1,20 @@
+<?php
+// =====================================================================
+// PLANTILLA de configuración local del servidor.
+//
+// CÓMO USAR ESTO EN EL SERVIDOR DE LA INSTITUCIÓN:
+// 1. Copiá este archivo y renombralo a "conexion.local.php" (sin ".ejemplo")
+//    en esta misma carpeta.
+// 2. Completá los datos reales de MySQL del servidor ahí abajo.
+// 3. Listo. Ese archivo nunca se sube a git (está en .gitignore), así que
+//    las próximas actualizaciones automáticas desde GitHub no lo van a
+//    tocar ni a sobreescribir.
+//
+// En tu compu (localhost) NO hace falta hacer nada de esto: sin este
+// archivo, conexion.php usa los valores por defecto de XAMPP.
+// =====================================================================
+
+$host       = "localhost";        // normalmente sigue siendo "localhost" aunque MySQL este en el mismo servidor
+$usuario_bd = "usuario_real_aqui";
+$clave_bd   = "clave_real_aqui";
+$nombre_bd  = "nextleague";

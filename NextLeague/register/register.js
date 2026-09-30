@@ -101,6 +101,15 @@ function validateForm() {
     if (password.length < 8) {
         showError('password', 'La contraseña debe tener al menos 8 caracteres.');
         valid = false;
+    } else if (!/[A-Z]/.test(password)) {
+        showError('password', 'Debe incluir al menos una letra mayúscula.');
+        valid = false;
+    } else if (!/[0-9]/.test(password)) {
+        showError('password', 'Debe incluir al menos un número.');
+        valid = false;
+    } else if (!/[^A-Za-z0-9]/.test(password)) {
+        showError('password', 'Debe incluir al menos un carácter especial (ej: !@#$%).');
+        valid = false;
     } else {
         clearError('password');
     }
@@ -118,6 +127,14 @@ function validateForm() {
     if (!terms) {
         document.getElementById('termsError').textContent = 'Debés aceptar los términos para continuar.';
         valid = false;
+    }
+
+    const rol = document.querySelector('input[name="rol"]:checked');
+    if (!rol) {
+        document.getElementById('rolError').textContent = 'Elegí si querés crear torneos o participar en ellos.';
+        valid = false;
+    } else {
+        document.getElementById('rolError').textContent = '';
     }
 
     return valid;
@@ -149,28 +166,32 @@ form.addEventListener('submit', async function (e) {
         username: document.getElementById('username').value.trim(),
         email: document.getElementById('email').value.trim(),
         password: document.getElementById('password').value,
+        rol: document.querySelector('input[name="rol"]:checked')?.value,
     };
 
-    // Simulación de registro (reemplazá con una API real, si llegamos a usar )
+    // ── Llamada real al backend (PHP + MySQL) ──
     try {
-        await new Promise(resolve => setTimeout(resolve, 1500)); // simular request
+        const res = await fetch('../backend/auth/registro.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        });
+        const resultado = await res.json();
 
-        // Ejemplo de lo que harías con un backend real:
-        // const res = await fetch('/api/register', {
-        //     method: 'POST',
-        //     headers: { 'Content-Type': 'application/json' },
-        //     body: JSON.stringify(data)
-        // });
-        // if (!res.ok) throw new Error('Error al registrar');
+        if (!resultado.exito) {
+            showAlert('❌ ' + resultado.mensaje, 'error');
+            setLoading(false);
+            return;
+        }
 
         showAlert('✅ ¡Cuenta creada exitosamente! Redirigiendo...', 'success');
 
         setTimeout(() => {
-            window.location.href = '../home /login.html';
-        }, 2000);
+            window.location.href = '../home/login.html';
+        }, 1500);
 
     } catch (err) {
-        showAlert('❌ Ocurrió un error al registrar. Intentá de nuevo.', 'error');
+        showAlert('❌ No se pudo conectar con el servidor. Revisá que Apache y MySQL estén prendidos en XAMPP.', 'error');
         setLoading(false);
     }
 });

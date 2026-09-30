@@ -1,0 +1,87 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #05001b; color: #fff; font-family: 'Segoe UI', sans-serif; min-height: 100vh; }
+
+.navbar { padding: 16px 40px; border-bottom: 1px solid rgba(255,255,255,0.07); position: sticky; top: 0; background: rgba(5,0,27,0.9); backdrop-filter: blur(10px); z-index: 100; }
+.navbar-content { display: flex; align-items: center; justify-content: space-between; max-width: 1100px; margin: 0 auto; }
+.logo { height: 36px; }
+
+.main-content { max-width: 900px; margin: 0 auto; padding: 40px 20px 100px; }
+.hidden { display: none !important; }
+.aviso { text-align: center; padding: 60px 0; opacity: .7; }
+
+.torneo-header { display: flex; gap: 24px; align-items: center; margin-bottom: 24px; }
+.torneo-logo { width: 96px; height: 96px; border-radius: 14px; object-fit: cover; background: #1a0d33; }
+.torneo-header-info h1 { font-size: 28px; margin: 6px 0; }
+.torneo-meta { color: rgba(255,255,255,0.6); font-size: 14px; }
+.torneo-descripcion { margin-top: 10px; color: rgba(255,255,255,0.85); max-width: 600px; }
+.badge-estado { display: inline-block; padding: 4px 10px; border-radius: 999px; font-size: 12px; background: rgba(141,2,255,0.2); border: 1px solid rgba(141,2,255,0.5); }
+.link-reglas { display: inline-block; margin-top: 10px; color: #c7b3ff; font-size: 13px; }
+
+.alert { padding: 12px 16px; border-radius: 8px; margin-bottom: 20px; font-size: 14px; }
+.alert.success { background: rgba(0,200,83,0.15); border: 1px solid rgba(0,200,83,0.4); color: #7CF2B0; }
+.alert.error { background: rgba(255,68,68,0.15); border: 1px solid rgba(255,68,68,0.4); color: #FFA3A3; }
+
+.panel, .panel-organizador { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 24px; margin-bottom: 22px; }
+.panel h2, .panel-organizador h2 { font-size: 18px; margin-bottom: 14px; }
+.ayuda-organizador { font-size: 13px; color: rgba(255,255,255,0.55); margin-top: 8px; }
+
+.btn-primary { background: #8d02ff; color: #fff; border: none; padding: 10px 18px; border-radius: 8px; cursor: pointer; font-size: 14px; }
+.btn-primary:hover { background: #7a00e0; }
+.btn-secundario { background: rgba(255,255,255,0.08); color: #fff; border: 1px solid rgba(255,255,255,0.15); padding: 8px 14px; border-radius: 8px; cursor: pointer; font-size: 13px; }
+.btn-secundario:hover { background: rgba(255,255,255,0.15); }
+
+.form-inline { display: flex; gap: 10px; }
+.form-inline input { flex: 1; padding: 10px 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.05); color: #fff; }
+.form-inline button { background: #8d02ff; color: #fff; border: none; padding: 10px 16px; border-radius: 8px; cursor: pointer; }
+
+.lista-equipos { display: flex; flex-wrap: wrap; gap: 10px; }
+.chip-equipo { display: flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 8px 12px; border-radius: 999px; font-size: 13px; }
+.chip-equipo button { background: none; border: none; color: #c7b3ff; cursor: pointer; font-size: 12px; text-decoration: underline; }
+
+.tabla-posiciones { width: 100%; border-collapse: collapse; font-size: 13px; }
+.tabla-posiciones th, .tabla-posiciones td { padding: 8px 10px; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.08); }
+.tabla-posiciones th:first-child, .tabla-posiciones td:first-child { text-align: left; }
+
+.lista-llaves { display: flex; flex-direction: column; gap: 18px; }
+.ronda-titulo { font-size: 13px; color: rgba(255,255,255,0.55); margin-bottom: 6px; text-transform: uppercase; letter-spacing: .05em; }
+
+.lista-enfrentamientos { display: flex; flex-direction: column; gap: 10px; }
+.fila-partido { display: flex; align-items: center; justify-content: space-between; gap: 10px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 10px 14px; font-size: 14px; flex-wrap: wrap; }
+.fila-partido .equipos { flex: 1; min-width: 200px; }
+.fila-partido .resultado { font-weight: bold; }
+.fila-partido .form-resultado { display: flex; gap: 6px; align-items: center; }
+.fila-partido .form-resultado input { width: 44px; padding: 6px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.05); color: #fff; text-align: center; }
+.fila-partido .form-resultado button { background: #8d02ff; border: none; color: #fff; padding: 6px 10px; border-radius: 6px; cursor: pointer; font-size: 12px; }
+.estado-tag { font-size: 11px; padding: 3px 8px; border-radius: 999px; background: rgba(255,255,255,0.08); }
+.estado-tag.finalizado { background: rgba(0,200,83,0.2); }
+
+/* ── Responsive (agregado) ── */
+@media (max-width: 768px) {
+    .main-content { padding: 24px 14px 70px; }
+
+    /* En mobile el logo y el texto del torneo se apilan en vez de ir lado a lado */
+    .torneo-header { flex-direction: column; align-items: flex-start; gap: 14px; }
+    .torneo-logo { width: 72px; height: 72px; }
+    .torneo-header-info h1 { font-size: 22px; }
+
+    .panel, .panel-organizador { padding: 16px; }
+
+    /* El formulario de crear equipo pasa de una fila a una columna */
+    .form-inline { flex-direction: column; }
+    .form-inline button { width: 100%; }
+
+    /* La tabla de posiciones scrollea horizontal en vez de romper el layout */
+    .tabla-posiciones { display: block; overflow-x: auto; white-space: nowrap; }
+
+    /* Cada partido pasa de una fila a una columna para que el resultado no quede apretado */
+    .fila-partido { flex-direction: column; align-items: flex-start; }
+    .fila-partido .form-resultado { width: 100%; }
+}
+
+/* ── Solicitudes para unirse a un equipo (agregado) ── */
+.panel-solicitudes {
+    background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 10px; padding: 10px; margin: -4px 0 10px 0; display: flex; flex-direction: column; gap: 8px;
+}
+.fila-solicitud { display: flex; justify-content: space-between; align-items: center; font-size: 13px; }
+.fila-solicitud div { display: flex; gap: 6px; }

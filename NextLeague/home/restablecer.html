@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restablecer contraseña - NextLeague</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-content">
+            <a href="index.html" class="logo-link"><img src="../logo/logoproyeco.png" class="logo" alt=""></a>
+            <span class="nav-label"><a href="login.html">Volver a iniciar sesión</a></span>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="form-card">
+            <h2>Elegí tu nueva contraseña</h2>
+            <p class="form-subtitle">Mínimo 8 caracteres, con mayúscula, número y carácter especial.</p>
+
+            <div id="alertMessage" class="alert hidden"></div>
+
+            <form id="restablecerForm" novalidate>
+                <div class="form-group">
+                    <label for="password_nueva">Nueva contraseña</label>
+                    <input type="password" id="password_nueva" name="password_nueva" required>
+                </div>
+                <button type="submit" class="btn-submit" id="submitBtn">
+                    <span id="btnText">Cambiar contraseña</span>
+                    <span id="btnLoader" class="btn-loader hidden"></span>
+                </button>
+            </form>
+        </div>
+    </main>
+
+    <script>
+        const token = new URLSearchParams(window.location.search).get('token');
+        const form = document.getElementById('restablecerForm');
+        const alertMessage = document.getElementById('alertMessage');
+        const submitBtn = document.getElementById('submitBtn');
+        const btnText = document.getElementById('btnText');
+        const btnLoader = document.getElementById('btnLoader');
+
+        function showAlert(msg, type) {
+            alertMessage.textContent = msg;
+            alertMessage.className = `alert ${type}`;
+            alertMessage.classList.remove('hidden');
+        }
+
+        if (!token) showAlert('Falta el token en el link. Pedí uno nuevo desde "¿Olvidaste tu contraseña?".', 'error');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            submitBtn.disabled = true;
+            btnText.classList.add('hidden');
+            btnLoader.classList.remove('hidden');
+
+            try {
+                const res = await fetch('../backend/auth/restablecer_password.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ token, password_nueva: document.getElementById('password_nueva').value })
+                });
+                const data = await res.json();
+                showAlert(data.mensaje, data.exito ? 'success' : 'error');
+                if (data.exito) setTimeout(() => window.location.href = 'login.html', 1500);
+            } catch (err) {
+                showAlert('No se pudo conectar con el servidor.', 'error');
+            } finally {
+                submitBtn.disabled = false;
+                btnText.classList.remove('hidden');
+                btnLoader.classList.add('hidden');
+            }
+        });
+    </script>
+</body>
+</html>

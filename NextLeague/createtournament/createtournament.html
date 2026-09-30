@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crear torneo</title>
-     <link rel="stylesheet" href="createTournament.css">
+     <link rel="stylesheet" href="createtournament.css">
 </head>
  
 
@@ -16,9 +16,9 @@
 
             <!-- Logotipo -->
            <div class="logo-container">
-                <img src="../logo/logoproyeco.png" alt="NextLeague">
+                <img src="../logo/logoproyeco.png" alt="NextLeague tournament management platform logo">
             </div>
-          </div>
+            <div id="authArea" class="auth-buttons"></div>
     </nav>
 
     <main>
@@ -34,40 +34,61 @@
 
         <section id="forms" class ="forms">
             
-                <form action="#" method="post" class="tournament-form">
+                <div id="alertMessage" class="alert hidden"></div>
+                <form id="tournamentForm" class="tournament-form">
                 <!------ COLUMNA IZQUIERDA DEL FORM-->
                     <div class="form-left">
                     <label for="tournamentName">Nombre del torneo:</label>
-                    <input type="text" id="tournamentName" name="tournamentName" required pattern="[A-Za-z]+">
+                    <input type="text" id="tournamentName" name="tournamentName" required>
 
-                    <label for="game">Juego:</label>
-                    <input type="text" id="game" name="game" required pattern="[A-Za-z]+">
+                    <label for="id_juego">Juego / disciplina:</label>
+                    <select id="id_juego" name="id_juego" required>
+                        <option value="">Cargando juegos...</option>
+                    </select>
 
                     <label for="tournamentType">Tipo de torneo:</label>
-                    <input type="text" id="tournamentType" name="tournamentType" required pattern="[A-Za-z]+">
+                    <select id="tournamentType" name="tournamentType" required>
+                        <option value="">Seleccioná un formato</option>
+                        <option value="liga">Liga (todos contra todos)</option>
+                        <option value="eliminacion_directa">Eliminación directa</option>
+                        <option value="sistema_suizo">Sistema suizo</option>
+                    </select>
 
                     <label for="teams">Numero de equipos:</label>
-                    <input type="number" id="teams" name="teams" required>
+                    <input type="number" id="teams" name="teams" min="2" required>
                     </div>
                     <!------ COLUMNA CENTRAL DEL FORM-->
                     <div class="form-center">
-                    
-                    <label for="subir-reglas">
-                         <img src="../iconos/camera.png" alt="file" class="upload-icon">
-    <span>Subir reglas</span>
-                    </label>
-                    <input type="file" id="subir-reglas"  name="subir-reglas"  hidden required >
-                        
-                    
-                    <input type="file" id="subir-imagen"  name="subir-reglas" hidden required>
-                    <label for="subir-imagen"> <img src="../iconos/folder.png" alt="camera" class="upload-icon"> <span>Subir imagen</span> </label>
 
-                    
+                    <!-- Subir logo: se corrigió el id, ahora coincide con su label -->
+                    <!-- accept="image/*" para que solo se puedan elegir imágenes -->
+                    <label for="subir-imagen">
+                        <span>Subir logo</span>
+                        <img src="../iconos/camera.png" alt="logo upload" class="upload-icon">
+                    </label>
+                    <input type="file" id="subir-imagen" name="subir-imagen" accept="image/*" hidden required>
+                    <!-- Aquí el script.js mete la vista previa y el botón de eliminar -->
+                    <div class="upload-preview" id="preview-subir-imagen"></div>
+
+                    <!-- Subir reglas: solo acepta PDF -->
+                    <label for="subir-reglas">
+                        <span>Subir reglas</span>
+                        <img src="../iconos/folder.png" alt="image upload" class="upload-icon">
+                    </label>
+                    <input type="file" id="subir-reglas" name="subir-reglas" accept="application/pdf" hidden required>
+                    <div class="upload-preview" id="preview-subir-reglas"></div>
+
                     </div>
                     <!------ COLUMNA DERECHA DEL FORM-->
                     <div class="form-right">
                     <label for="award">Premio total:</label>
-                    <input type="number" id="award" name="award" required>
+                    <div class="premio-con-moneda">
+                        <input type="number" id="award" name="award" min="0" step="0.01" required>
+                        <select id="moneda" name="moneda">
+                            <option value="UYU">UYU ($)</option>
+                            <option value="USD">USD (US$)</option>
+                        </select>
+                    </div>
 
                     <label for="startDate">Fecha de inicio:</label>
                     <input type="date" id="startDate" name="startDate" required>
@@ -76,15 +97,22 @@
                     <input type="date" id="endDate" name="endDate" required>
 
                     <label for="description">Descripción:</label>
-                    <textarea id="description" name="description" rows="4" required pattern="[A-Za-z]+"></textarea>
+                    <textarea id="description" name="description" rows="4" required></textarea>
                     </div>
                     <!----Boton de enviar-->
-                    <button type="submit">Crear torneo</button>
+                    <button type="submit" id="submitBtn">
+                        <span id="btnText">Crear torneo</span>
+                        <span id="btnLoader" class="btn-loader hidden"></span>
+                    </button>
                 </form>
             
 
         </section>
     
     </main>
+
+    <script src="script.js"></script>
+    <script src="../shared/auth-ui.js"></script>
+    <script src="crear-torneo.js"></script>
 </body>
 </html>

@@ -184,7 +184,7 @@ a {
         overflow: visible;
     }
 
-    .navbar-content{
+    .navbar-content {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -192,6 +192,7 @@ a {
         width: 100%;
         padding: 10px 15px;
         box-sizing: border-box;
+        position: relative;
     }
 
     .logo-container {
@@ -283,7 +284,10 @@ a {
         font-size: 40px;
 
         display: block ;
-        position: static;
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
     }
        
     .auth-buttons {
@@ -291,6 +295,7 @@ a {
         flex-direction: row ; /* Uno al lado del otro */
         gap: 0.5rem; /* Espacio chiquito entre ellos para que entren */
         margin-top: 0 ;
+        margin-right: 55px; /* deja lugar al botón de menú hamburguesa, fijo en la esquina */
         position: static ;
     }
 
@@ -632,3 +637,27 @@ margin-bottom: 3px;
 .icon{
     width: 5rem;
 }
+
+/* ── Filtro de deporte, estado vacío, y resultados recientes (agregado) ── */
+.calendary-card { display: block; text-decoration: none; color: inherit; margin-bottom: 14px; }
+
+.filtro-deporte-wrapper {
+    display: flex; align-items: center; gap: 10px; margin: 0 auto 20px;
+    max-width: 900px; padding: 0 20px; flex-wrap: wrap;
+}
+.filtro-deporte-wrapper label { font-size: 14px; color: rgba(255,255,255,0.7); }
+.filtro-deporte-wrapper select {
+    padding: 8px 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.15);
+    background: rgba(255,255,255,0.05); color: #fff; font-size: 14px;
+}
+
+.estado-vacio { text-align: center; opacity: .6; padding: 30px 10px; font-size: 14px; }
+
+.lista-resultados-home { display: flex; flex-direction: column; gap: 10px; max-width: 900px; margin: 0 auto; }
+.fila-resultado-home {
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;
+    background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 10px; padding: 12px 16px; text-decoration: none; color: #fff; font-size: 14px;
+}
+.fila-resultado-home:hover { background: rgba(255,255,255,0.08); }
+.fila-resultado-home .torneo-tag { font-size: 12px; opacity: .6; }

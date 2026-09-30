@@ -80,26 +80,29 @@ form.addEventListener('submit', async function (e) {
         remember: document.getElementById('rememberMe').checked,
     };
 
+    // ── Llamada real al backend (PHP + MySQL) ──
     try {
-        await new Promise(resolve => setTimeout(resolve, 1400)); // simular request
+        const res = await fetch('../backend/auth/login.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        });
+        const resultado = await res.json();
 
-        // Ejemplo con backend real:
-        // const res = await fetch('/api/login', {
-        //     method: 'POST',
-        //     headers: { 'Content-Type': 'application/json' },
-        //     body: JSON.stringify(data)
-        // });
-        // if (!res.ok) throw new Error('Credenciales incorrectas');
-        // ojala se entineda ujajaja;
+        if (!resultado.exito) {
+            showAlert('❌ ' + resultado.mensaje, 'error');
+            setLoading(false);
+            return;
+        }
 
         showAlert('✅ ¡Sesión iniciada! Redirigiendo...', 'success');
 
         setTimeout(() => {
-            window.location.href = '../furo home jaja';
-        }, 1500);
+            window.location.href = 'index.html';
+        }, 1200);
 
     } catch (err) {
-        showAlert('❌ Email o contraseña incorrectos. Intentá de nuevo.', 'error');
+        showAlert('❌ No se pudo conectar con el servidor. Revisá que Apache y MySQL estén prendidos en XAMPP.', 'error');
         setLoading(false);
     }
 });

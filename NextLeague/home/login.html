@@ -73,7 +73,7 @@
                     <div class="form-group">
                         <div class="label-row">
                             <label for="password">Contraseña</label>
-                            <a href="#" class="forgot-link">¿Olvidaste tu contraseña?</a>
+                            <a href="recuperar.html" class="forgot-link">¿Olvidaste tu contraseña?</a>
                         </div>
                         <div class="input-wrapper">
                             <span class="input-icon">🔒</span>
@@ -101,12 +101,16 @@
 
                 <div class="divider"><span>o</span></div>
 
-                <p class="register-link">¿No tenés cuenta? <a href="../register /index.html">Registrate gratis</a></p>
+                <p class="register-link">¿No tenés cuenta? <a href="../register/register.html">Registrate gratis</a></p>
             </div>
         </div>
 
     </main>
 
+    <script src="../shared/auth-ui.js"></script>
+    <script>
+        nextleagueObtenerSesion().then(d => { if (d.logueado) window.location.href = 'index.html'; });
+    </script>
     <script src="login.js"></script>
 </body>
 </html>
